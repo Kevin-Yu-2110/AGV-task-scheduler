@@ -1,0 +1,14 @@
+﻿<Window x:Class="AGV_task_scheduler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    z:\desktop\code\agv task scheduler\agv task scheduler\mainwindow.xaml
+z:\desktop\code\agv task scheduler\agv task scheduler\mainwindow.xaml.cs
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AGV_task_scheduler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        
+    </Grid>
+</Window>
