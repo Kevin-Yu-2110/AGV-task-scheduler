@@ -56,36 +56,56 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Components\TasksList.xaml.cs">
-      <DependentUpon>TasksList.xaml</DependentUpon>
+    <Compile Include="Components\AGVPanel.xaml.cs">
+      <DependentUpon>AGVPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Components\TasksProgressTab.xaml.cs">
-      <DependentUpon>TasksProgressTab.xaml</DependentUpon>
+    <Compile Include="Components\Taskbar.xaml.cs">
+      <DependentUpon>Taskbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TasksView.xaml.cs">
-      <DependentUpon>TasksView.xaml</DependentUpon>
+    <Compile Include="Components\TasksPanel.xaml.cs">
+      <DependentUpon>TasksPanel.xaml</DependentUpon>
     </Compile>
-    <Page Include="Components\TasksList.xaml">
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AGV.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Stores\AGVStore.cs" />
+    <Compile Include="ViewModels\AGVPanelViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\TasksPanelViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\AddAGVView.xaml.cs">
+      <DependentUpon>AddAGVView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Components\AGVPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Components\TasksProgressTab.xaml">
+    <Page Include="Components\Taskbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Components\TasksPanel.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Views\TasksView.xaml">
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddAGVView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,8 +136,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

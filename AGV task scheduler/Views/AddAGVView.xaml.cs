@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AGV_task_scheduler.Views
 {
     /// <summary>
-    /// Interaction logic for TasksView.xaml
+    /// Interaction logic for AddAGVView.xaml
     /// </summary>
-    public partial class TasksView : UserControl
+    public partial class AddAGVView : UserControl
     {
-        public TasksView()
+        public AddAGVView()
         {
             InitializeComponent();
         }
