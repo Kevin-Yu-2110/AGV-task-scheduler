@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AGV_task_scheduler.Components" xmlns:viewmodels="clr-namespace:AGV_task_scheduler.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CreateTaskViewModel}"
         mc:Ignorable="d"
-        Title="CreateTaskView" Height="200" Width="800">
+        Title="CreateTaskView" Height="200" Width="600">
     <StackPanel>
         <TextBlock Text="Create Task" FontSize="25" Padding="10"/>
         <Grid>

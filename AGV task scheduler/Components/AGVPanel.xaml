@@ -14,10 +14,11 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="AGVs" Margin="5" FontSize="20" HorizontalAlignment="Center"/>
-            <DataGrid Grid.Row="1" ItemsSource="{Binding Store}" AutoGenerateColumns="False">
+            <DataGrid Grid.Row="1" ItemsSource="{Binding Store}" AutoGenerateColumns="False"
+                      SelectedItem="{Binding SelectedAGV, Mode=OneWayToSource}" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                    <DataGridTextColumn Header="ID" Width="*" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Status" Width="*" Binding="{Binding CurrentStatus}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Grid.Row="2">

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AGV_task_scheduler.Utilities;
+using System.Windows.Controls;
 
 namespace AGV_task_scheduler.ViewModels
 {
@@ -16,6 +17,7 @@ namespace AGV_task_scheduler.ViewModels
         private readonly AGVStore _store;
         public ICommand AddAGVCommand { get; }
         public ICommand RemoveAGVCommand { get; }
+        public AGV SelectedAGV { get; set; }
         public ObservableCollection<AGV> Store
         {
             get { return _store.AGVs; }
@@ -24,10 +26,15 @@ namespace AGV_task_scheduler.ViewModels
         {
             _store = store;
             AddAGVCommand = new RelayCommand(
-                execute: _ => Store.Add(new AGV(Status.Idle))
+                execute: _ => Store.Add(new AGV())
+            );
+            RemoveAGVCommand = new RelayCommand(
+                execute: _ =>
+                {
+                    if (SelectedAGV == null || SelectedAGV.CurrentStatus == AGV.Status.Processing) return;
+                    Store.Remove(SelectedAGV);
+                }
             );
         }
-
-
     }
 }

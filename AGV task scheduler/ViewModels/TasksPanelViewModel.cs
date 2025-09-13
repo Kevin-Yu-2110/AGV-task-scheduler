@@ -10,17 +10,20 @@ using System.Text;
 using System.Windows.Input;
 using AGV_task_scheduler.Utilities;
 using AGV_task_scheduler.Services;
+using System.Security.Permissions;
 
 namespace AGV_task_scheduler.ViewModels
 {
     internal class TasksPanelViewModel : ViewModelBase
     {
         private readonly AGVStore _store;
-        private readonly IWindowService _createTaskWindowService;
+        private readonly IWindowService<CreateTaskViewModel> _createTaskWindowService;
+        private readonly IWindowService<AssignTaskViewModel> _assignTaskWindowService;
         public ObservableCollection<Task> Tasks { get; } = new ObservableCollection<Task>();
         public CreateTaskViewModel CreateTaskViewModel { get; }
+        public Task SelectedTask { get; set; }
         public ICommand OpenCreateTaskWindowCommand { get; }
-        public ICommand AssignTaskCommand { get; }
+        public ICommand OpenAssignTaskWindowCommand { get; }
         public ObservableCollection<AGV> AGVStore
         {
             get { return _store.AGVs; }
@@ -28,9 +31,21 @@ namespace AGV_task_scheduler.ViewModels
         public TasksPanelViewModel(AGVStore aGVStore)
         {
             _store = aGVStore;
-            _createTaskWindowService = new CreateTaskWindowService(Tasks);
+            _createTaskWindowService = new CreateTaskWindowService();
+            _assignTaskWindowService = new AssignTaskWindowService();
             OpenCreateTaskWindowCommand = new RelayCommand(
-                execute: _ => _createTaskWindowService.OpenWindow()
+                execute: _ => _createTaskWindowService.OpenWindow(new CreateTaskViewModel(Tasks))
+            );
+            OpenAssignTaskWindowCommand = new RelayCommand(
+                execute: _ =>
+                {
+                    if (SelectedTask == null || SelectedTask.CurrentStatus == Task.Status.Complete) return;
+                    var assignTaskViewModel = new AssignTaskViewModel(AGVStore, SelectedTask)
+                    {
+                        CloseAction = _assignTaskWindowService.CloseWindow
+                    };
+                    _assignTaskWindowService.OpenWindow(assignTaskViewModel);
+                }
             );
         }
     }

@@ -14,14 +14,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Tasks" Margin="5" FontSize="20" HorizontalAlignment="Center"/>
-            <DataGrid Grid.Row="1" ItemsSource="{Binding Tasks}" AutoGenerateColumns="False">
+            <DataGrid Grid.Row="1" ItemsSource="{Binding Tasks}" AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectedItem="{Binding SelectedTask, Mode=OneWayToSource}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Task Description" Binding="{Binding TaskDescription}"/>
+                    <DataGridTextColumn Header="Task Description" Width="2*" Binding="{Binding TaskDescription}"/>
+                    <DataGridTextColumn Header="Status" Width="*" Binding="{Binding CurrentStatus}"/>
+                    <DataGridTextColumn Header="Assigned AGV" Binding="{Binding AssignedAGVId}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Grid.Row="2">
                 <Button Content="Add Task" FontSize="15" Padding="0 10 0 10" Command="{Binding OpenCreateTaskWindowCommand}"/>
-                <Button Content="Assign Task" FontSize="15" Padding="0 10 0 10" Command="{Binding AssignTaskCommand}"/>
+                <Button Content="Assign Task" FontSize="15" Padding="0 10 0 10" Command="{Binding OpenAssignTaskWindowCommand}"/>
             </StackPanel>
         </Grid>
     </Border>

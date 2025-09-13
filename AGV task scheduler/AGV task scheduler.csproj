@@ -59,6 +59,9 @@
     <Compile Include="Components\AGVPanel.xaml.cs">
       <DependentUpon>AGVPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\AssignTaskView.xaml.cs">
+      <DependentUpon>AssignTaskView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\CreateTaskView.xaml.cs">
       <DependentUpon>CreateTaskView.xaml</DependentUpon>
     </Compile>
@@ -73,11 +76,13 @@
     </Compile>
     <Compile Include="Models\AGV.cs" />
     <Compile Include="Models\Task.cs" />
+    <Compile Include="Services\AssignTaskWindowService.cs" />
     <Compile Include="Services\IWindowService.cs" />
     <Compile Include="Services\CreateTaskWindowService.cs" />
     <Compile Include="Stores\AGVStore.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="ViewModels\AGVPanelViewModel.cs" />
+    <Compile Include="ViewModels\AssignTaskViewModel.cs" />
     <Compile Include="ViewModels\CreateTaskViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\TasksPanelViewModel.cs" />
@@ -86,6 +91,10 @@
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\AGVPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\AssignTaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

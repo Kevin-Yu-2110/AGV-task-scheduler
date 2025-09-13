@@ -9,7 +9,6 @@ namespace AGV_task_scheduler.Components
     {
         public TasksPanel()
         {
-
             InitializeComponent();
         }
     }

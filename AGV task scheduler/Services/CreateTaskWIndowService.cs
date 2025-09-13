@@ -7,27 +7,18 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
-using System.Windows.Navigation;
 
 namespace AGV_task_scheduler.Services
 {
-    internal class CreateTaskWindowService : IWindowService
+    internal class CreateTaskWindowService : IWindowService<CreateTaskViewModel>
     {
-        private readonly ObservableCollection<Task> _tasks;
-
-        public CreateTaskWindowService(ObservableCollection<Task> tasks)
-        {
-            _tasks = tasks;
-        }
-        public void OpenWindow()
+        public void OpenWindow(CreateTaskViewModel createTaskViewModel)
         {
             var createTaskView = new CreateTaskView()
             {
-
-                DataContext = new CreateTaskViewModel(_tasks),
+                DataContext = createTaskViewModel,
                 Owner = Application.Current.MainWindow,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
-
             };
             createTaskView.ShowDialog();
         }
