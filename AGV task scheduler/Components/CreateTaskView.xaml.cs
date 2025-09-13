@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AGV_task_scheduler.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AGV_task_scheduler.Views
+namespace AGV_task_scheduler.Components
 {
     /// <summary>
-    /// Interaction logic for AddAGVView.xaml
+    /// Interaction logic for CreateTaskView.xaml
     /// </summary>
-    public partial class AddAGVView : UserControl
+    public partial class CreateTaskView : Window
     {
-        public AddAGVView()
+        public CreateTaskView()
         {
             InitializeComponent();
         }

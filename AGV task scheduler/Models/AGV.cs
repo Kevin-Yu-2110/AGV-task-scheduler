@@ -15,13 +15,15 @@ namespace AGV_task_scheduler.Models
     }
     internal class AGV
     {
-        public int ID { get; }
+        private static int _nextId = 0; //not type safe but only one thread adding agvs in this program
+        public int Id { get; }
         public Task Task { get; }
         public Status Status { get; }
 
-        public AGV(int id, Task task, Status status)
+        public AGV(Status status, Task task=null)
         {
-            ID = id;
+            Id = _nextId;
+            _nextId++;
             Task = task;
             Status = status;
         }

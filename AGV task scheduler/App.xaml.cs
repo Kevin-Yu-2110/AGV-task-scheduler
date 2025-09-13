@@ -13,8 +13,8 @@ namespace AGV_task_scheduler
         public App()
         {
             _AGVStore = new AGVStore();
-            _AGVStore.AGVs.Add(new Models.AGV(0, new Models.Task(), Models.Status.Idle));
-            _AGVStore.AGVs.Add(new Models.AGV(1, new Models.Task(), Models.Status.Idle));
+            _AGVStore.AGVs.Add(new Models.AGV(Models.Status.Idle));
+            _AGVStore.AGVs.Add(new Models.AGV(Models.Status.Idle));
         }
         protected override void OnStartup(StartupEventArgs e)
         {

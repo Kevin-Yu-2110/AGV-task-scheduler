@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AGV_task_scheduler.Utilities;
 
 namespace AGV_task_scheduler.ViewModels
 {
@@ -22,10 +23,9 @@ namespace AGV_task_scheduler.ViewModels
         public AGVPanelViewModel(AGVStore store)
         {
             _store = store;
-        }
-        private bool CanExecuteAddAGV()
-        {
-            return true;
+            AddAGVCommand = new RelayCommand(
+                execute: _ => Store.Add(new AGV(Status.Idle))
+            );
         }
 
 

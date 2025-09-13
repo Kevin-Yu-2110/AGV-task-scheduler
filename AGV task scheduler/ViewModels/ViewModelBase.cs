@@ -16,4 +16,5 @@ namespace AGV_task_scheduler.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
 }
