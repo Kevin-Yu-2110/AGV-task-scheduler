@@ -1,5 +1,5 @@
 ﻿using AGV_task_scheduler.Components;
-using AGV_task_scheduler.Models;
+using AGV_task_scheduler.domain.Models;
 using AGV_task_scheduler.ViewModels;
 using System;
 using System.Collections.Generic;

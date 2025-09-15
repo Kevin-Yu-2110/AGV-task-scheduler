@@ -1,4 +1,4 @@
-﻿using AGV_task_scheduler.Models;
+﻿using AGV_task_scheduler.domain.Models;
 using AGV_task_scheduler.Stores;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Windows.Input;
 using AGV_task_scheduler.Utilities;
 using AGV_task_scheduler.Services;
 using System.Security.Permissions;
+using AGV_task_scheduler.domain.Commands;
 
 namespace AGV_task_scheduler.ViewModels
 {
@@ -19,6 +20,7 @@ namespace AGV_task_scheduler.ViewModels
         private readonly AGVStore _store;
         private readonly IWindowService<CreateTaskViewModel> _createTaskWindowService;
         private readonly IWindowService<AssignTaskViewModel> _assignTaskWindowService;
+        private readonly ILogTaskRunCommand _logTaskRunCommand;
         public ObservableCollection<Task> Tasks { get; } = new ObservableCollection<Task>();
         public CreateTaskViewModel CreateTaskViewModel { get; }
         public Task SelectedTask { get; set; }
@@ -28,9 +30,10 @@ namespace AGV_task_scheduler.ViewModels
         {
             get { return _store.AGVs; }
         }
-        public TasksPanelViewModel(AGVStore aGVStore)
+        public TasksPanelViewModel(AGVStore aGVStore, ILogTaskRunCommand logTaskRunCommand)
         {
             _store = aGVStore;
+            _logTaskRunCommand = logTaskRunCommand;
             _createTaskWindowService = new CreateTaskWindowService();
             _assignTaskWindowService = new AssignTaskWindowService();
             OpenCreateTaskWindowCommand = new RelayCommand(
@@ -40,7 +43,7 @@ namespace AGV_task_scheduler.ViewModels
                 execute: _ =>
                 {
                     if (SelectedTask == null || SelectedTask.CurrentStatus == Task.Status.Complete) return;
-                    var assignTaskViewModel = new AssignTaskViewModel(AGVStore, SelectedTask)
+                    var assignTaskViewModel = new AssignTaskViewModel(AGVStore, SelectedTask, logTaskRunCommand)
                     {
                         CloseAction = _assignTaskWindowService.CloseWindow
                     };

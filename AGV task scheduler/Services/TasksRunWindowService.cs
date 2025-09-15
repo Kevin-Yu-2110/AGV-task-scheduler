@@ -1,26 +1,25 @@
 ﻿using AGV_task_scheduler.Components;
-using AGV_task_scheduler.domain.Models;
 using AGV_task_scheduler.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace AGV_task_scheduler.Services
 {
-    internal class CreateTaskWindowService : IWindowService<CreateTaskViewModel>
+    internal class TasksRunWindowService : IWindowService<TasksRunViewModel>
     {
-        public void OpenWindow(CreateTaskViewModel createTaskViewModel)
+       public void OpenWindow(TasksRunViewModel tasksRunViewModel)
         {
-            var createTaskView = new CreateTaskView()
+            var tasksRunView = new TasksRunView()
             {
-                DataContext = createTaskViewModel,
+                DataContext = tasksRunViewModel,
                 Owner = Application.Current.MainWindow,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
             };
-            createTaskView.ShowDialog();
+            tasksRunView.ShowDialog();
         }
         public void CloseWindow() { }
     }

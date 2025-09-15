@@ -1,16 +1,15 @@
-﻿using AGV_task_scheduler.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SystemTasks = System.Threading.Tasks;
-using System.Windows.Documents;
 using System.ComponentModel;
 using System.Security;
+using AGV_task_scheduler.domain.Commands;
 
-namespace AGV_task_scheduler.Models
+namespace AGV_task_scheduler.domain.Models
 {
-    internal class AGV : INotifyPropertyChanged
+    public class AGV : INotifyPropertyChanged
     {
         public enum Status
         {
@@ -42,7 +41,7 @@ namespace AGV_task_scheduler.Models
             _nextId++;
 
         }
-        public bool AssignTask(Task task)
+        public bool AssignTask(Task task, ILogTaskRunCommand logTaskRunCommand)
         {
             if (CurrentStatus != Status.Idle)
             {
@@ -50,16 +49,22 @@ namespace AGV_task_scheduler.Models
             }
             AssignedTask = task;
             CurrentStatus = Status.Processing;
-            _ = ProcessTask();
+            ProcessTask(logTaskRunCommand);
             return true;
         }
-        public async SystemTasks.Task<bool> ProcessTask() //only returns true now since i haven't implemented failing
+        public async SystemTasks.Task<bool> ProcessTask(ILogTaskRunCommand logTaskRunCommand) //only returns true now since i haven't implemented failing
         {
             var rnd = new Random();
             var delay = rnd.Next(1000, 20001);
             await SystemTasks.Task.Delay(delay);
             AssignedTask.MarkComplete();
             CurrentStatus = Status.Idle;
+            await logTaskRunCommand.Execute(new TaskRun()
+            {
+                TaskDescription = AssignedTask.TaskDescription,
+                AssignedAGVId = AssignedTask.AssignedAGVId,
+                CompletedTimeStamp = DateTime.Now,
+            });
             return true;
         }
         private void OnPropertyChanged(string propertyName)

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGV task scheduler", "AGV task scheduler\AGV task scheduler.csproj", "{E7688FB9-02CF-493E-9E63-733E33969380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGV task scheduler.domain", "AGV task scheduler.domain\AGV task scheduler.domain.csproj", "{EFD1B428-A291-4E40-B816-C602A1B75963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGV task scheduler.infrastructure", "AGV task scheduler.infrastructure\AGV task scheduler.infrastructure.csproj", "{105F7325-639C-4985-873B-16951217EBFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E7688FB9-02CF-493E-9E63-733E33969380}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7688FB9-02CF-493E-9E63-733E33969380}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7688FB9-02CF-493E-9E63-733E33969380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD1B428-A291-4E40-B816-C602A1B75963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD1B428-A291-4E40-B816-C602A1B75963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD1B428-A291-4E40-B816-C602A1B75963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD1B428-A291-4E40-B816-C602A1B75963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105F7325-639C-4985-873B-16951217EBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105F7325-639C-4985-873B-16951217EBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105F7325-639C-4985-873B-16951217EBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105F7325-639C-4985-873B-16951217EBFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

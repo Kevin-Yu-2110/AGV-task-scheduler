@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace AGV_task_scheduler.Models
+namespace AGV_task_scheduler.domain.Models
 {
-    internal class Task : INotifyPropertyChanged
+    public class Task : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public enum Status

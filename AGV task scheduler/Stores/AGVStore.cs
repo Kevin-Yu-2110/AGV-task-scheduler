@@ -1,4 +1,4 @@
-﻿using AGV_task_scheduler.Models;
+﻿using AGV_task_scheduler.domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
