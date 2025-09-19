@@ -13,5 +13,4 @@ namespace AGV_task_scheduler.infrastructure
         public AGVTaskSchedulerDbContext(string connectionString) : base(connectionString) { }
         public AGVTaskSchedulerDbContext() : base("Data Source=(LocalDB)\\MSSQLLocalDB;Database=AGVDatabase;Integrated Security=True;") { }
     }
-
 }

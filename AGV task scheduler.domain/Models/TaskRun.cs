@@ -10,7 +10,7 @@ namespace AGV_task_scheduler.domain.Models
     {
         public int Id { get; set; }
         public int? AssignedAGVId {  get; set; }
-        public DateTime CompletedTimesStamp {  get; set; }
+        public DateTime CompletedTimeStamp {  get; set; }
         public string TaskDescription { get; set; }
     }
 }
